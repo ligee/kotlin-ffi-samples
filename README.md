@@ -10,9 +10,9 @@ Contains samples of FFI usage from Kotlin:
    library should be placed into the folder where jnr-ffi loader may find it, e.g. in the project root)
 
 3. _ffi-bench_ - benchmarking various FFI approaches:
-     - JNI - _not implemented yet_
+     - JNI
      - JNR
-     - BridJ - _not implemented yet_
+     - BridJ - _works with some problems_
 
 *Note:* - at the moment native libs for JNR should be copied/symlinked to the project root folder
 
