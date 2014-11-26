@@ -7,7 +7,7 @@ int kffis_func_int_int(int param)
     return param % 42;
 }
 
-int kffis_func_string_int(char* param)
+int kffis_func_string_int(const char* param)
 {
     return strlen(param);
 }

@@ -4,10 +4,9 @@
 
 extern "C" {
 
-
 int kffis_func_int_int(int param);
 
-int kffis_func_string_int(char* param);
+int kffis_func_string_int(const char* param);
 
 char* kffis_func_int_string(int param);
 
