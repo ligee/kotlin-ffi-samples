@@ -12,11 +12,11 @@ JNIEXPORT jint JNICALL Java_ffibench_jni_LibFfiBench_funcStringInt(JNIEnv * env,
 
 JNIEXPORT jstring JNICALL Java_ffibench_jni_LibFfiBench_funcIntString(JNIEnv * env, jobject obj, jint param);
 
-// JNIEXPORT jint JNICALL Java_ffibench_jni_LibFfiBench_func_struct1_int(JNIEnv * env, jobject obj, jobject param);
+JNIEXPORT jint JNICALL Java_ffibench_jni_LibFfiBench_funcStruct1Int(JNIEnv * env, jobject obj, jobject param);
 
-// JNIEXPORT jobject JNICALL Java_ffibench_jni_LibFfiBench_func_int_struct1(JNIEnv * env, jobject obj, jint param);
+JNIEXPORT jobject JNICALL Java_ffibench_jni_LibFfiBench_funcIntStruct1(JNIEnv * env, jobject obj, jint param);
 
-// JNIEXPORT jint JNICALL Java_ffibench_jni_LibFfiBench_func_callback_int(JNIEnv * env, jobject obj, int (*cb)(int));
+JNIEXPORT jint JNICALL Java_ffibench_jni_LibFfiBench_funcCallbackInt(JNIEnv * env, jobject obj, jobject param);
 
 }
 

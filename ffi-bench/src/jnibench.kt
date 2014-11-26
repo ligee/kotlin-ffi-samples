@@ -9,7 +9,7 @@ public class LibFfiBench {
     native fun funcIntString(param: Int): String = null!!
     native fun funcStruct1Int(param: struct1): Int = null!!
     native fun funcIntStruct1(param: Int): struct1 = null!!
-    // native fun func_callback_int(cb: Callback_int_int): Int = null!!
+    native fun funcCallbackInt(cb: callback1): Int = null!!
 
     {
         System.loadLibrary("kotlinffibench")
@@ -19,6 +19,12 @@ public class LibFfiBench {
 class struct1(i: Int = 0, s: String = String()) {
     public var int_field: Int = i
     public var string_field: String = s
+}
+
+public class callback1 {
+    public fun callback(param: Int): Int {
+        return param % 42 + 1;
+    }
 }
 
 fun measureAll(repeats: Int) {
@@ -42,4 +48,7 @@ fun measureAll(repeats: Int) {
     st1.string_field = "hi back"
     assert_equals( libffi.funcStruct1Int(st1), 10 + 7)
     println("struct1->int: ${unasserted_measure({ libffi.funcStruct1Int(st1) }, repeats, calibration)}us")
+
+    val callback = callback1()
+    println("callback->int: ${assert_equals_measure({ libffi.funcCallbackInt(callback) }, 1, repeats, calibration)}us")
 }

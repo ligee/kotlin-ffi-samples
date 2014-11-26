@@ -12,7 +12,7 @@ char* kffis_func_int_string(int param);
 
 struct kffis_struct1 {
     int int_field;
-    char* string_field;
+    const char* string_field;
 };
 
 int kffis_func_struct1_int(kffis_struct1* param);
