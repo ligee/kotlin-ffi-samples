@@ -7,8 +7,8 @@ public class LibFfiBench {
     native fun funcIntInt(param: Int): Int = null!!
     native fun funcStringInt(param: String): Int = null!!
     native fun funcIntString(param: Int): String = null!!
-    // native fun func_struct1_int(param: struct1): Int = null!!
-    // native fun func_int_struct1(param: Int): struct1 = null!!
+    native fun funcStruct1Int(param: struct1): Int = null!!
+    native fun funcIntStruct1(param: Int): struct1 = null!!
     // native fun func_callback_int(cb: Callback_int_int): Int = null!!
 
     {
@@ -27,11 +27,19 @@ fun measureAll(repeats: Int) {
 
     println("JNI results ($repeats repeats, calibrated to ${calibration}us)")
 
-    println("int->int: ${assert_equals_measure({
-        libffi.funcIntInt(33)
-    }, 33, repeats, calibration)}us")
+    println("int->int: ${assert_equals_measure({ libffi.funcIntInt(33) }, 33, repeats, calibration)}us")
 
     println("string->int: ${assert_equals_measure({ libffi.funcStringInt("from kotlin") }, 11, repeats, calibration)}us")
 
     println("int->string: ${assert_equals_measure({ libffi.funcIntInt(1) }, "greetings from native", repeats, calibration)}us")
+
+    var st1 = libffi.funcIntStruct1(22)
+    assert_equals( st1.int_field, 42)
+    assert_equals( st1.string_field , "greetings from native")
+    println("int->struct1: ${unasserted_measure({ libffi.funcIntStruct1(22) }, repeats, calibration)}us")
+
+    st1.int_field = 10
+    st1.string_field = "hi back"
+    assert_equals( libffi.funcStruct1Int(st1), 10 + 7)
+    println("struct1->int: ${unasserted_measure({ libffi.funcStruct1Int(st1) }, repeats, calibration)}us")
 }
