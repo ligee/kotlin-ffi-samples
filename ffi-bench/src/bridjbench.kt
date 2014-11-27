@@ -13,7 +13,11 @@ public class LibFfiBench {
     public native fun kffis_func_int_string(param: Int): Pointer<Byte> = null!!
     public native fun kffis_func_struct1_int(param: Pointer<struct1>): Int = null!!
     public native fun kffis_func_int_struct1(param: Int): Pointer<struct1> = null!!
-    //public native fun kffis_func_callback_int(cb: Callback_int_int): Int = null!!
+    public native fun kffis_func_callback_int(cb: Pointer<CallbackType>): Int = null!!
+
+    public abstract class CallbackType : Callback<CallbackType>() {
+        public abstract fun apply(param: Int): Int
+    }
 
     {
         BridJ.register()
@@ -27,13 +31,8 @@ class struct1(pointer: Pointer<StructObject>? = null) : StructObject(pointer) {
     Field(1) public fun string_field(): Pointer<Byte> = this.io.getPointerField(this, 1)
 }
 
-public trait Callback_int_int {
-    jnr.ffi.annotations.Delegate
-    public fun callback(param: Int): Int
-}
-
-public class callback1: Callback_int_int{
-    public override fun callback(param: Int): Int {
+public class callback1() : LibFfiBench.CallbackType() {
+    public override fun apply(param: Int): Int {
         return param % 42 + 1;
     }
 }
@@ -45,7 +44,7 @@ fun measureAll(repeats: Int) {
 
     println("BridJ results ($repeats repeats, calibrated to ${calibration}us)")
 
-    println("int->int: ${assert_equals_measure({ libffi.kffis_func_int_int(33) }, 33, repeats, calibration)}us")
+    println("int->int: ${assert_equals_measure({ libffi.kffis_func_int_int(34) }, 33, repeats, calibration)}us")
 
     println("string->int: ${assert_equals_measure({ libffi.kffis_func_string_int(pointerToCString("from kotlin")) }, 11, repeats, calibration)}us")
 
@@ -60,8 +59,7 @@ fun measureAll(repeats: Int) {
 //    st1.get().string_field("hi back")
 //    assert_equals( libffi.kffis_func_struct1_int(st1), 10 + 7)
     println("struct1->int: ${unasserted_measure({ libffi.kffis_func_struct1_int(st1) }, repeats, calibration)}us")
-/*
+
     val callback = callback1()
-    println("callback->int: ${assert_equals_measure({ libffi.kffis_func_callback_int(callback) }, 1, repeats, calibration)}us")
-*/
+    println("callback->int: ${assert_equals_measure({ libffi.kffis_func_callback_int(Pointer.pointerTo(callback)) }, 1, repeats, calibration)}us")
 }
