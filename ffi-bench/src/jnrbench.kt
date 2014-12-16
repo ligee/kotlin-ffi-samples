@@ -39,7 +39,8 @@ fun measureAll(repeats: Int) {
 
     println("int->int: ${assert_equals_measure({ libffi.kffis_func_int_int(33) }, 33, repeats, calibration)}us")
 
-    println("string->int: ${assert_equals_measure({ libffi.kffis_func_string_int("from kotlin") }, 11, repeats, calibration)}us")
+    val from_str = "from kotlin"
+    println("string->int: ${assert_equals_measure({ libffi.kffis_func_string_int(from_str) }, 11, repeats, calibration)}us")
 
     println("int->string: ${assert_equals_measure({ libffi.kffis_func_int_int(1) }, "greetings from native", repeats, calibration)}us")
 

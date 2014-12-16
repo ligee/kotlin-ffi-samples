@@ -6,4 +6,5 @@ fun main(args: Array<String>) {
     jnr.measureAll(repeats)
     jni.measureAll(repeats)
     bridj.measureAll(repeats)
+//    swig.measureAll(repeats)
 }

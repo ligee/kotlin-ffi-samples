@@ -14,8 +14,8 @@ Contains samples of FFI usage from Kotlin:
      - JNR
      - BridJ - _works with some problems, namely value extraction from struct doesn't work_
 
-Results:
---------
+ffi-bench results:
+------------------
 
 JNR results (10000 repeats, calibrated to 0us)
 
