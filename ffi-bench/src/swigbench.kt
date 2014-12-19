@@ -6,22 +6,22 @@ import ffibench.measurements.*
 
 public class benchFunctionsJNI {
     class object {
-        public native platformStatic fun kffis_func_int_int(jarg1: Int): Int = null!!
-        public native platformStatic fun kffis_func_string_int(jarg1: String): Int = null!!
-        public native platformStatic fun kffis_func_int_string(jarg1: Int): String = null!!
-        public native platformStatic fun kffis_struct1_int_field_set(jarg1: Long, jarg1_: kffis_struct1, jarg2: Int): Unit = null!!
-        public native platformStatic fun kffis_struct1_int_field_get(jarg1: Long, jarg1_: kffis_struct1): Int = null!!
-        public native platformStatic fun kffis_struct1_string_field_set(jarg1: Long, jarg1_: kffis_struct1, jarg2: String): Unit = null!!
-        public native platformStatic fun kffis_struct1_string_field_get(jarg1: Long, jarg1_: kffis_struct1): String = null!!
-        public native platformStatic fun new_kffis_struct1(): Long = null!!
-        public native platformStatic fun delete_kffis_struct1(jarg1: Long): Unit = null!!
-        public native platformStatic fun kffis_func_struct1_int(jarg1: Long, jarg1_: kffis_struct1): Int = null!!
-        public native platformStatic fun kffis_func_int_struct1(jarg1: Int): Long = null!!
-        public native platformStatic fun kffis_func_callback_int(jarg1: Long): Int = null!!
-
         {
             System.loadLibrary("bench_functions_swig")
         }
+
+        public native platformStatic fun kffis_func_int_int(jarg1: Int): Int
+        public native platformStatic fun kffis_func_string_int(jarg1: String): Int
+        public native platformStatic fun kffis_func_int_string(jarg1: Int): String
+        public native platformStatic fun kffis_struct1_int_field_set(jarg1: Long, jarg1_: kffis_struct1, jarg2: Int): Unit
+        public native platformStatic fun kffis_struct1_int_field_get(jarg1: Long, jarg1_: kffis_struct1): Int
+        public native platformStatic fun kffis_struct1_string_field_set(jarg1: Long, jarg1_: kffis_struct1, jarg2: String): Unit
+        public native platformStatic fun kffis_struct1_string_field_get(jarg1: Long, jarg1_: kffis_struct1): String
+        public native platformStatic fun new_kffis_struct1(): Long
+        public native platformStatic fun delete_kffis_struct1(jarg1: Long): Unit
+        public native platformStatic fun kffis_func_struct1_int(jarg1: Long, jarg1_: kffis_struct1): Int
+        public native platformStatic fun kffis_func_int_struct1(jarg1: Int): Long
+        public native platformStatic fun kffis_func_callback_int(jarg1: Long): Int
     }
 }
 

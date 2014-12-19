@@ -8,12 +8,12 @@ import ffibench.measurements.*
 
 Library("kotlinffibench")
 public class LibFfiBench {
-    public native fun kffis_func_int_int(param: Int): Int = null!!
-    public native fun kffis_func_string_int(param: Pointer<Byte>): Int = null!!
-    public native fun kffis_func_int_string(param: Int): Pointer<Byte> = null!!
-    public native fun kffis_func_struct1_int(param: Pointer<struct1>): Int = null!!
-    public native fun kffis_func_int_struct1(param: Int): Pointer<struct1> = null!!
-    public native fun kffis_func_callback_int(cb: Pointer<CallbackType>): Int = null!!
+    public native fun kffis_func_int_int(param: Int): Int
+    public native fun kffis_func_string_int(param: Pointer<Byte>): Int
+    public native fun kffis_func_int_string(param: Int): Pointer<Byte>
+    public native fun kffis_func_struct1_int(param: Pointer<struct1>): Int
+    public native fun kffis_func_int_struct1(param: Int): Pointer<struct1>
+    public native fun kffis_func_callback_int(cb: Pointer<CallbackType>): Int
 
     public abstract class CallbackType : Callback<CallbackType>() {
         public abstract fun apply(param: Int): Int

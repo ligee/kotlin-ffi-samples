@@ -4,16 +4,16 @@ package ffibench.jni
 import ffibench.measurements.*
 
 public class LibFfiBench {
-    native fun funcIntInt(param: Int): Int = null!!
-    native fun funcStringInt(param: String): Int = null!!
-    native fun funcIntString(param: Int): String = null!!
-    native fun funcStruct1Int(param: struct1): Int = null!!
-    native fun funcIntStruct1(param: Int): struct1 = null!!
-    native fun funcCallbackInt(cb: callback1): Int = null!!
-
     {
         System.loadLibrary("kotlinffibench")
     }
+
+    native fun funcIntInt(param: Int): Int
+    native fun funcStringInt(param: String): Int
+    native fun funcIntString(param: Int): String
+    native fun funcStruct1Int(param: struct1): Int
+    native fun funcIntStruct1(param: Int): struct1
+    native fun funcCallbackInt(cb: callback1): Int
 }
 
 class struct1(i: Int = 0, s: String = String()) {

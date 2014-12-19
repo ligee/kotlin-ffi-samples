@@ -3,6 +3,8 @@ Kotlin FFI samples
 
 Contains samples of FFI usage from Kotlin:
 
+*Note*: require Kotlin M10 or later
+
 1. _pidtest_ - direct port of JNR GetPid sample (https://github.com/jnr/jnr-ffi-examples/tree/master/getpid/src/main/java/getpid)
 
 2. _armatest_ - example of using sample wrapper around Armadillo (http://arma.sourceforge.net/) lib via JNR,
