@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ffi-bench/ffi-bench.iml" filepath="$PROJECT_DIR$/ffi-bench/ffi-bench.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hello-armadillo/hello-armadillo.iml" filepath="$PROJECT_DIR$/hello-armadillo/hello-armadillo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jnr-getpid/jnr-getpid.iml" filepath="$PROJECT_DIR$/jnr-getpid/jnr-getpid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jnr-gettimeofday/jnr-gettimeofday.iml" filepath="$PROJECT_DIR$/jnr-gettimeofday/jnr-gettimeofday.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/kotlin-ffi-samples.iml" filepath="$PROJECT_DIR$/.idea/kotlin-ffi-samples.iml" />
+    </modules>
+  </component>
+</project>
