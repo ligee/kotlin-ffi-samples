@@ -4,7 +4,7 @@
 
 int kffis_func_int_int(int param)
 {
-    return param % 42;
+    return param % 42 + 1;
 }
 
 int kffis_func_string_int(const char* param)

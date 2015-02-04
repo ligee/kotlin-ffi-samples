@@ -44,15 +44,15 @@ fun measureAll(repeats: Int) {
 
     println("BridJ results ($repeats repeats, calibrated to ${calibration}us)")
 
-    println("int->int: ${assert_equals_measure({ libffi.kffis_func_int_int(34) }, 33, repeats, calibration)}us")
+    println("int->int: ${assert_equals_measure({ libffi.kffis_func_int_int(33) }, 34, repeats, calibration)}us")
 
     println("string->int: ${assert_equals_measure({ libffi.kffis_func_string_int(pointerToCString("from kotlin")) }, 11, repeats, calibration)}us")
 
-    println("int->string: ${assert_equals_measure({ libffi.kffis_func_int_int(1) }, "greetings from native", repeats, calibration)}us")
+    println("int->string: ${assert_equals_measure({ libffi.kffis_func_int_string(1).getCString() }, "greetings from native", repeats, calibration)}us")
 
     var st1 = libffi.kffis_func_int_struct1(22)
- //   assert_equals( st1.get().int_field(), 42)
- //   assert_equals( st1.get().string_field(), "greetings from native")
+//    assert_equals( st1.get().int_field(), 42)
+//    assert_equals( st1.get().string_field(), "greetings from native")
     println("int->struct1: ${unasserted_measure({ libffi.kffis_func_int_struct1(22) }, repeats, calibration)}us")
 
 //    st1.get().int_field(10)

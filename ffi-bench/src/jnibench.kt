@@ -33,11 +33,11 @@ fun measureAll(repeats: Int) {
 
     println("JNI results ($repeats repeats, calibrated to ${calibration}us)")
 
-    println("int->int: ${assert_equals_measure({ libffi.funcIntInt(33) }, 33, repeats, calibration)}us")
+    println("int->int: ${assert_equals_measure({ libffi.funcIntInt(33) }, 34, repeats, calibration)}us")
 
     println("string->int: ${assert_equals_measure({ libffi.funcStringInt("from kotlin") }, 11, repeats, calibration)}us")
 
-    println("int->string: ${assert_equals_measure({ libffi.funcIntInt(1) }, "greetings from native", repeats, calibration)}us")
+    println("int->string: ${assert_equals_measure({ libffi.funcIntString(1) }, "greetings from native", repeats, calibration)}us")
 
     var st1 = libffi.funcIntStruct1(22)
     assert_equals( st1.int_field, 42)

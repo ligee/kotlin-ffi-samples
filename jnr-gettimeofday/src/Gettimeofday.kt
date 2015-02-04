@@ -1,3 +1,5 @@
+package gettimeofday
+
 import jnr.ffi.*
 import jnr.ffi.types.*
 import jnr.ffi.annotations.Out
@@ -10,8 +12,8 @@ import jnr.ffi.Struct.time_t
  */
 public class Gettimeofday {
     public class Timeval(runtime: Runtime) : Struct(runtime) {
-        public val tv_sec: time_t = time_t()
-        public val tv_usec: SignedLong = SignedLong()
+        public val tv_sec: time_t = super.time_t()
+        public val tv_usec: SignedLong = super.SignedLong()
     }
 
     public trait LibC {
