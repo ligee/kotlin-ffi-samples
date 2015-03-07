@@ -61,6 +61,6 @@ fun measureAll(repeats: Int) {
     val callback_ds = callback2(callback_dyn)
 
     println("callback->int (static): ${assert_equals_measure({ libffi.kffis_func_callback_int(callback_stat) }, 1, repeats, calibration)}us")
-    println("callback->int (lamba): ${assert_equals_measure({ libffi.kffis_func_callback_int(callback_ds) }, 1, repeats, calibration)}us")
+    println("callback->int (lambda): ${assert_equals_measure({ libffi.kffis_func_callback_int(callback_ds) }, 1, repeats, calibration)}us")
     println("callback->int (dynamic): ${assert_equals_measure({ libffi.kffis_func_callback_int(callback_dyn) }, 1, repeats, calibration)}us")
 }
